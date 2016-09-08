@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -60,6 +60,11 @@ namespace CoreDebugger
             get { return _myMenu["MissileClient"].Cast<CheckBox>().CurrentValue; }
         }
 
+        private static bool CheckOrbwalker
+        {
+            get { return _myMenu["Orbwalker"].Cast<CheckBox>().CurrentValue; }
+        }
+
         private static void Main()
         {
             Loading.OnLoadingComplete += delegate { Initialize(); };
@@ -79,6 +84,7 @@ namespace CoreDebugger
             _myMenu.Add("StreamingMode", new CheckBox("Streaming Mode", false)).OnValueChange += OnOnValueChange;
             _myMenu.Add("Spellbook", new CheckBox("Spellbook", false)).OnValueChange += OnOnValueChange;
             _myMenu.Add("MissileClient", new CheckBox("MissileClient", false)).OnValueChange += OnOnValueChange;
+            _myMenu.Add("Orbwalker", new CheckBox("Orbwalker", false)).OnValueChange += OnOnValueChange;
             _myMenu["StreamingMode"].Cast<CheckBox>().CurrentValue = false;
             _myMenu.AddGroupLabel("AutoAttack");
             _myMenu.Add("autoAttackDamage", new CheckBox("Print autoattack damage")).OnValueChange += OnOnValueChange;
@@ -134,6 +140,13 @@ namespace CoreDebugger
                         "TotalMagicalDamage: " + Player.Instance.TotalMagicalDamage + ", PercentMagicPenetrationMod: " + Player.Instance.PercentMagicPenetrationMod + ", FlatMagicPenetrationMod: " +
                         Player.Instance.FlatMagicPenetrationMod);
                     DrawText(Player.Instance, "Crit: " + Player.Instance.Crit + ", FlatCritChanceMod: " + Player.Instance.FlatCritChanceMod);
+                }
+                if (CheckOrbwalker)
+                {
+                    DrawText(Player.Instance, "CanAttack: " + Player.Instance.CanAttack);
+                    DrawText(Player.Instance, "IsChanneling: " + Player.Instance.Spellbook.IsChanneling);
+                    DrawText(Player.Instance, "IsAutoAttacking: " + Player.Instance.Spellbook.IsAutoAttacking);
+                    DrawText(Player.Instance, "CastEndTime: " + Player.Instance.Spellbook.CastEndTime);
                 }
                 if (IsValidTarget)
                 {
