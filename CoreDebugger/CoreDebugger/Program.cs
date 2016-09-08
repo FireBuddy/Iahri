@@ -147,6 +147,7 @@ namespace CoreDebugger
                     DrawText(Player.Instance, "IsChanneling: " + Player.Instance.Spellbook.IsChanneling);
                     DrawText(Player.Instance, "IsAutoAttacking: " + Player.Instance.Spellbook.IsAutoAttacking);
                     DrawText(Player.Instance, "CastEndTime: " + Player.Instance.Spellbook.CastEndTime);
+                    DrawText(Player.Instance, "GetAutoAttackRange: " + Player.Instance.GetAutoAttackRange());
                 }
                 if (IsValidTarget)
                 {
