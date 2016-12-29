@@ -22,6 +22,8 @@ namespace iAhri
         private static readonly Dictionary<string, Menu> SubMenu = new Dictionary<string, Menu>();
         private static Spell.Skillshot Q, W, E, R;
         private static Spell.Targeted Ignite;
+        public static Menu PunishMenu { get; set; }
+        public static Menu PunishSetupMenu { get; set; }
 
         private static readonly Dictionary<string, object> _Q = new Dictionary<string, object>
         {
@@ -140,8 +142,10 @@ namespace iAhri
             SubMenu["Misc"].Add("Gapclose", new CheckBox("Use E on gapclose spells", true));
             SubMenu["Misc"].Add("Channeling", new CheckBox("Use E on channeling spells", true));
             
-            SubMenu["PunishMenu"] = menu.AddSubMenu("Punish", "Punish");
-            SubMenu["PunishSetupMenu"] = menu.AddSubMenu("Setup", "Setup");
+            //SubMenu["PunishMenu"] = menu.AddSubMenu("Punish", "Punish");
+            //SubMenu["PunishSetupMenu"] = menu.AddSubMenu("Setup", "Setup");
+            PunishMenu = Menu.AddSubMenu("Punish");
+            PunishSetupMenu = Menu.AddSubMenu("Punish Setup");
             foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
             {
                 
