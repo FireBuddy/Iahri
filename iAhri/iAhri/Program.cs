@@ -140,9 +140,9 @@ namespace iAhri
             SubMenu["Misc"].Add("Gapclose", new CheckBox("Use E on gapclose spells", true));
             SubMenu["Misc"].Add("Channeling", new CheckBox("Use E on channeling spells", true));
             
-            PunishMenu = menu.AddSubMenu("Punish");
+            SubMenu["PunishMenu"] = menu.AddSubMenu("Punish", "Punish");
             
-            PunishSetupMenu = menu.AddSubMenu("Punish Setup");
+            //PunishSetupMenu = menu.AddSubMenu("Punish Setup");
             
  
             Game.OnTick += OnTick;
