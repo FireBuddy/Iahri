@@ -292,7 +292,7 @@ namespace iAhri
             
             
             
- 
+            Obj_AI_Base.OnBasicAttack += Obj_AI_Base_OnBasicAttack;
             Game.OnTick += OnTick;
             GameObject.OnCreate += OnCreateObj;
             GameObject.OnDelete += OnDeleteObj;
@@ -309,7 +309,26 @@ namespace iAhri
             var v2 = v.To2D();
             return NavMesh.GetCollisionFlags(v2.X, v2.Y).HasFlag(CollisionFlags.Wall);
         }
+        private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
+        {
+            CurrentTarget = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
+            //(CurrentTarget.Hero != Champion.Yasuo && sender.Mana <= 90)//
+            if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) && sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(Q.Range) && Q.IsReady() && sender.IsEnemy)
+            {
 
+                    if (CurrentTarget.Hero != Champion.Yasuo)
+                    {
+                    Q.Cast(sender.ServerPosition);
+                    //Chat.Print("Basic Attack:"+args.SData.Name);
+                    }
+                    else if (sender.Mana <= 90)
+                    {
+                    Q.Cast(sender.ServerPosition);
+                    }
+                    
+             }
+            
+        }
         private static void OnTick(EventArgs args)
         {
             if (myHero.IsDead)
