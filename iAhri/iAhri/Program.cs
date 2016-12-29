@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using EloBuddy;
@@ -134,8 +134,7 @@ namespace iAhri
             SubMenu["Flee"].Add("Q", new CheckBox("Use Q", true));
             SubMenu["Flee"].Add("R", new CheckBox("Use R", true));
 
-            SubMenu["
-                    "] = menu.AddSubMenu("Drawing", "Drawing");
+            SubMenu["Draw"] = menu.AddSubMenu("Drawing", "Drawing");
             SubMenu["Draw"].Add("Line", new CheckBox("Draw line for Q orb", true));
 
             SubMenu["Misc"] = menu.AddSubMenu("Misc", "Misc");
@@ -794,8 +793,6 @@ namespace iAhri
                 var p2 = Drawing.WorldToScreen(asd.Position);
                 Drawing.DrawLine(p1, p2, Q.Width, Color.FromArgb(100, 255, 255, 255));
             }
-            
-
         }
 
         private static void OnGapCloser(Obj_AI_Base sender, Gapcloser.GapcloserEventArgs args)
