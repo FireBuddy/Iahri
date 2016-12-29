@@ -330,6 +330,39 @@ namespace iAhri
              }
             
         }
+                private static void Obj_AI_Base_OnProcessSpellCast2(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
+        {
+            //|| (CurrentTarget.Hero == Champion.Yasuo && sender.Mana >= 90)
+            CurrentTarget = TargetSelector.GetTarget(Q.Range + 500, DamageType.Magical);
+            if (sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) || (CurrentTarget.Hero == Champion.Yasuo && sender.Mana >= 90))
+            {
+               return;
+            }
+            if (Q.IsReady() && !sender.IsInvulnerable && args.Target != CurrentTarget && !sender.IsDashing() && sender == CurrentTarget)
+            {
+
+                
+                if (args.End.Distance(Player.Instance.Position) >= 100 || args.SData.TargettingType == SpellDataTargetType.Unit)
+                {
+                    if (PunishMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
+                    {
+                        if (sender.IsValidTarget(870) && !PunishSetupMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
+                        {
+                            //Chat.Print("Pos Cast:"+args.SData.Name);
+                            Q.Cast(sender.ServerPosition);
+                        }
+                        else if (args.End.Distance(Player.Instance.Position) <= 870 && PunishSetupMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
+                        {
+                            //Chat.Print("End Cast:"+args.SData.Name);
+                            Q.Cast(args.End);
+                        }  
+                    }
+
+
+                } 
+
+            } 
+        }
         private static void OnTick(EventArgs args)
         {
             if (myHero.IsDead)
