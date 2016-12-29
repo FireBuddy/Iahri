@@ -140,9 +140,9 @@ namespace iAhri
             SubMenu["Misc"].Add("Gapclose", new CheckBox("Use E on gapclose spells", true));
             SubMenu["Misc"].Add("Channeling", new CheckBox("Use E on channeling spells", true));
             
-                        PunishMenu = Menu.AddSubMenu("Punish");
+            PunishMenu = menu.AddSubMenu("Punish");
             
-            PunishSetupMenu = Menu.AddSubMenu("Punish Setup");
+            PunishSetupMenu = menu.AddSubMenu("Punish Setup");
             
             foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
             {
