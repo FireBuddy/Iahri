@@ -148,30 +148,29 @@ namespace iAhri
             PunishSetupMenu = Menu.AddSubMenu("Punish Setup");
             foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
             {
-                
-                   foreach (
+                 foreach (
                      var spell in
                          enemy.Spellbook.Spells.Where(
                              a =>
                                  a.Slot == SpellSlot.Q || a.Slot == SpellSlot.W || a.Slot == SpellSlot.E ||
                                  a.Slot == SpellSlot.R))
-                    {
+                 {
                         if (spell.Slot == SpellSlot.Q)
                         {
                             if(enemy.ChampionName == "Thresh")
                             {
-                            SubMenu["PunishMenu"].Add("ThreshQLeap",
+                            PunishMenu.Add("ThreshQLeap",
                                 new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
                             PunishSetupMenu.Add("ThreshQLeap",
                                 new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true)); 
                             }
                             else if(enemy.ChampionName == "Elise")
                             {
-                            SubMenu["PunishMenu"].Add("EliseHumanQ",
+                            PunishMenu.Add("EliseHumanQ",
                                 new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
                             PunishSetupMenu.Add("EliseHumanQ",
                                 new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
-                            SubMenu["PunishMenu"].Add("EliseSpiderQLast",
+                            PunishMenu.Add("EliseSpiderQLast",
                                 new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
                             PunishSetupMenu.Add("EliseSpiderQLast",
                                 new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
@@ -179,7 +178,7 @@ namespace iAhri
                             
                            else
                            {
-                            SubMenu["PunishMenu"].Add(spell.SData.Name,
+                            PunishMenu.Add(spell.SData.Name,
                                 new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
                             PunishSetupMenu.Add(spell.SData.Name,
                                 new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
@@ -190,57 +189,57 @@ namespace iAhri
                         {
                             if(enemy.ChampionName == "Leblanc")
                             {
-                            SubMenu["PunishMenu"].Add("leblancslidereturn",
+                            PunishMenu.Add("leblancslidereturn",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
-                            SubMenu["PunishSetupMenu"].Add("leblancslidereturn",
+                            PunishSetupMenu.Add("leblancslidereturn",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
-                            SubMenu["PunishMenu"].Add("leblancslidereturnM",
+                            PunishMenu.Add("leblancslidereturnM",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
-                            SubMenu["PunishSetupMenu"].Add("leblancslidereturnM",
+                            PunishSetupMenu.Add("leblancslidereturnM",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
                             }
                             else if(enemy.ChampionName == "Zed")
                             {
-                            SubMenu["PunishMenu"].Add("ZedW2",
+                            PunishMenu.Add("ZedW2",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
-                            SubMenu["PunishSetupMenu"].Add("ZedW2",
+                            PunishSetupMenu.Add("ZedW2",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
 
                             }
                             else if(enemy.ChampionName == "Thresh")
                             {
-                            SubMenu["PunishMenu"].Add("LanternWAlly",
+                            PunishMenu.Add("LanternWAlly",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
-                            SubMenu["PunishSetupMenu"].Add("LanternWAlly",
+                            PunishSetupMenu.Add("LanternWAlly",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
                             }
                             else if(enemy.ChampionName == "TwistedFate")
                             {
-                            SubMenu["PunishMenu"].Add("BlueCardPreAttack",
+                            PunishMenu.Add("BlueCardPreAttack",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
-                            SubMenu["PunishSetupMenu"].Add("BlueCardPreAttack",
+                            PunishSetupMenu.Add("BlueCardPreAttack",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false)); 
-                            SubMenu["PunishMenu"].Add("RedCardPreAttack",
+                            PunishMenu.Add("RedCardPreAttack",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
-                            SubMenu["PunishSetupMenu"].Add("RedCardPreAttack",
+                            PunishSetupMenu.Add("RedCardPreAttack",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false)); 
-                            SubMenu["PunishMenu"].Add("GoldCardPreAttack",
+                            PunishMenu.Add("GoldCardPreAttack",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
-                            SubMenu["PunishSetupMenu"].Add("GoldCardPreAttack",
+                            PunishSetupMenu.Add("GoldCardPreAttack",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false)); 
                             }
                             else if(enemy.ChampionName == "Elise")
                             {
-                            SubMenu["PunishMenu"].Add("EliseHumanW",
+                            PunishMenu.Add("EliseHumanW",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
-                           SubMenu["PunishSetupMenu"].Add("EliseHumanW",
+                            PunishSetupMenu.Add("EliseHumanW",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
                             }
                             else
                             {
-                            SubMenu["PunishMenu"].Add(spell.SData.Name,
+                            PunishMenu.Add(spell.SData.Name,
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));
-                            SubMenu["PunishSetupMenu"].Add(spell.SData.Name,
+                            PunishSetupMenu.Add(spell.SData.Name,
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));     
                             }    
                         }
@@ -248,27 +247,27 @@ namespace iAhri
                         {
                             if(enemy.ChampionName == "Fizz")
                             {
-                            SubMenu["PunishMenu"].Add("FizzJumpTwo",
+                            PunishMenu.Add("FizzJumpTwo",
                                 new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
-                            SubMenu["PunishSetupMenu"].Add("FizzJumpTwo",
+                            PunishSetupMenu.Add("FizzJumpTwo",
                                 new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
                             }  
                             else if(enemy.ChampionName == "Elise")
                             {
-                            SubMenu["PunishMenu"].Add("EliseSpiderEDescent",
+                            PunishMenu.Add("EliseSpiderEDescent",
                                 new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
-                            SubMenu["PunishSetupMenu"].Add("EliseSpiderEDescent",
+                            PunishSetupMenu.Add("EliseSpiderEDescent",
                                 new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
-                            SubMenu["PunishMenu"].Add("EliseHumanE",
+                            PunishMenu.Add("EliseHumanE",
                                 new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
-                            SubMenu["PunishSetupMenu"].Add("EliseHumanE",
+                            PunishSetupMenu.Add("EliseHumanE",
                                 new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
                             }  
                             else
                             {
-                            SubMenu["PunishMenu"].Add(spell.SData.Name,
+                            PunishMenu.Add(spell.SData.Name,
                                 new CheckBox(enemy.ChampionName + " - E - " + spell.Name, false));
-                            SubMenu["PunishSetupMenu"].Add(spell.SData.Name,
+                            PunishSetupMenu.Add(spell.SData.Name,
                                 new CheckBox(enemy.ChampionName + " - E - " + spell.Name, false));
                             }    
                         }
@@ -276,25 +275,23 @@ namespace iAhri
                         {
                             if(enemy.ChampionName == "Zed")
                             {
-                            SubMenu["PunishMenu"].Add("ZedR2",
+                            PunishMenu.Add("ZedR2",
                                 new CheckBox(enemy.ChampionName + " - R - " + spell.Name, true));
-                            SubMenu["PunishSetupMenu"].Add("ZedR2",
+                            PunishSetupMenu.Add("ZedR2",
                                 new CheckBox(enemy.ChampionName + " - R - " + spell.Name, true)); 
                             }    
                             else
                             {
-                            SubMenu["PunishMenu"].Add(spell.SData.Name,
+                            PunishMenu.Add(spell.SData.Name,
                                 new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
-                            SubMenu["PunishSetupMenu"].Add(spell.SData.Name,
+                            PunishSetupMenu.Add(spell.SData.Name,
                                 new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
                             }        
                         }
-                    }
-
-                   
-
+                 }
                      
             }
+            
             
  
             Game.OnTick += OnTick;
