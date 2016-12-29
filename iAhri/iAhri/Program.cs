@@ -134,7 +134,8 @@ namespace iAhri
             SubMenu["Flee"].Add("Q", new CheckBox("Use Q", true));
             SubMenu["Flee"].Add("R", new CheckBox("Use R", true));
 
-            SubMenu["Draw"] = menu.AddSubMenu("Drawing", "Drawing");
+            SubMenu["
+                    "] = menu.AddSubMenu("Drawing", "Drawing");
             SubMenu["Draw"].Add("Line", new CheckBox("Draw line for Q orb", true));
 
             SubMenu["Misc"] = menu.AddSubMenu("Misc", "Misc");
@@ -792,6 +793,11 @@ namespace iAhri
                 var p1 = Drawing.WorldToScreen(myHero.Position);
                 var p2 = Drawing.WorldToScreen(asd.Position);
                 Drawing.DrawLine(p1, p2, Q.Width, Color.FromArgb(100, 255, 255, 255));
+            }
+            
+            if (Player.GetSpell(SpellSlot.Q).IsLearned)
+            {
+                EloBuddy.SDK.Rendering.Circle.Draw(new ColorBGRA(255, 0, 102, 255), Q.Range, Player.Instance);
             }
         }
 
