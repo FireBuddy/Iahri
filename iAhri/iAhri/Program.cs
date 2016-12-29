@@ -24,6 +24,7 @@ namespace iAhri
         private static Spell.Targeted Ignite;
         public static Menu PunishMenu { get; set; }
         public static Menu PunishSetupMenu { get; set; }
+        public static AIHeroClient CurrentTarget;
 
         private static readonly Dictionary<string, object> _Q = new Dictionary<string, object>
         {
