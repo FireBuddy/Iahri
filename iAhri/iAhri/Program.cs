@@ -293,6 +293,7 @@ namespace iAhri
             
             
             
+            Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast2;
             Obj_AI_Base.OnBasicAttack += Obj_AI_Base_OnBasicAttack;
             Game.OnTick += OnTick;
             GameObject.OnCreate += OnCreateObj;
