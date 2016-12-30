@@ -794,6 +794,10 @@ namespace iAhri
                 var p2 = Drawing.WorldToScreen(asd.Position);
                 Drawing.DrawLine(p1, p2, Q.Width, Color.FromArgb(100, 255, 255, 255));
             }
+            if (Player.GetSpell(SpellSlot.Q).IsLearned)
+            {
+                EloBuddy.SDK.Rendering.Circle.Draw(new ColorBGRA(255, 0, 102, 255), SpellManager.Q.Range, Player.Instance);
+            }
         }
 
         private static void OnGapCloser(Obj_AI_Base sender, Gapcloser.GapcloserEventArgs args)
