@@ -796,7 +796,7 @@ namespace iAhri
             }
             if (Player.GetSpell(SpellSlot.Q).IsLearned)
             {
-                EloBuddy.SDK.Rendering.Circle.Draw(new ColorBGRA(255, 0, 102, 255), SpellManager.Q.Range, Player.Instance);
+                EloBuddy.SDK.Rendering.Circle.Draw(new ColorBGRA(255, 0, 102, 255), Q.Range, Player.Instance);
             }
         }
 
